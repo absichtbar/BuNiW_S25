@@ -1,2 +1,10 @@
 @charset "UTF-8";
-@use '_00_resets';
+@import '_00_resets';
+@import '_01_font';
+
+a[aria-current]{
+    text-decoration: none;
+}
+a[target="_blank"], a[download]{
+    color: red;
+}

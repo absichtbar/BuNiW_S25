@@ -1,6 +1,138 @@
-a[aria-current]{
-    text-decoration: none;
+aside, header, footer, main, nav, section,
+article, hr,
+div, noscript,
+h1, h2, h3, h4, h5, h6, p,
+pre,
+address,
+form, fieldset,
+figcaption, figure, picture,
+iframe, video, audio,
+table, thead, tbody, tfoot {
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: baseline;
 }
-a[target="_blank"], a[download]{
-    color: red;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+code,
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, main, nav, section, search {
+  display: block;
+}
+
+span,
+abbr, dfn,
+em, strong, mark,
+del, s, ins,
+cite, q, sub, sup,
+p code, li code, dl code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code kbd,
+samp,
+var,
+time,
+label, select, textarea, progress,
+data,
+object {
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+}
+
+a, button {
+  font-style: normal;
+  position: relative;
+}
+
+button {
+  display: inline-block;
+}
+
+ul:not([class]), ol:not([class]) {
+  margin-block-start: 16px;
+  margin-block-end: 16px;
+}
+
+@font-face {
+  font-family: "sans-serif-copy";
+  src: local("Atkinson Hyperlegible Next"), local("Atkinson_Hyperlegible_Next"), url("fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+html {
+  font-size: 100%;
+  font-family: sans-serif-copy, sans-serif;
+  line-height: 1.5;
+}
+html[lang*=simple] {
+  font-size: 120%;
+}
+
+body {
+  font-size: 1rem;
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 0;
+}
+body > * {
+  background-color: darkolivegreen;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+nav ul {
+  list-style: "";
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+nav ul li {
+  padding: 0 16px;
+}
+
+main {
+  padding: 0 16px;
+}
+
+dt, dd {
+  display: inline-block;
+}
+
+li:nth-child(even) {
+  background: yellowgreen;
+}
+
+h1 {
+  padding-inline-start: 32px;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.sans-serif {
+  font-family: sans-serif;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+
+a[aria-current] {
+  text-decoration: none;
+}
+
+a[target=_blank], a[download] {
+  color: red;
 }

@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "sans-serif-copy";
+    src:    local("Atkinson Hyperlegible Next"), 
+            local("Atkinson_Hyperlegible_Next"), 
+            url("fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+html {
+    font-size: 100%;
+    &[lang*="simple"] {
+        font-size: 120%; 
+    }
+    font-family: sans-serif-copy, sans-serif;
+    line-height: 1.5;
+}
+body {
+    font-size: 1rem;
+    max-width: 45rem;
+    margin: 0 auto;
+    padding: 0;
+    > * {
+        background-color: darkolivegreen;
+    }
+}
+p {
+    margin: 0 0 1rem;
+}
+nav ul {
+  //list-style: none; // Safari-Problem
+    list-style: "";
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+        padding: 0 16px;
+    }
+}
+main {
+    padding: 0 16px;
+}
+dt, dd {
+  display: inline-block;
+}
+li:nth-child(even) {
+  background: yellowgreen;
+}
+h1 {
+    padding-inline-start: 32px;
+}
+.monospace {
+    font-family: monospace;
+}
+.sans-serif {
+    font-family: sans-serif;
+}
+.serif {
+    font-family: serif;
+}
+.fantasy {
+    font-family: fantasy;
+}
+
+// FOUT => Flash of Unstyled Text
+// FOIT => Flash of Invisible Text
