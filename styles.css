@@ -1,5 +1,5 @@
 aside, header, footer, main, nav, section,
-article, hr,
+article,
 div, noscript,
 h1, h2, h3, h4, h5, h6, p,
 pre,
@@ -57,6 +57,35 @@ ul:not([class]), ol:not([class]) {
   margin-block-end: 16px;
 }
 
+:root {
+  --error: red;
+  --text-color: #000;
+  --link-color: #00F;
+  --body-background: #fefefe;
+  --main-background: #ffda8a;
+  --header-background: #8aff93;
+  --footer-background: #8aff93;
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --error: red;
+    --text-color: #fff;
+    --link-color: #fbff00;
+    --body-background: #010101;
+    --main-background: #6b4900;
+    --header-background: #ff7300;
+    --footer-background: #ff7300;
+  }
+}
+@media print {
+  :root {
+    --body-background: #fff;
+    --main-background: #fff;
+    --header-background: #fff;
+    --footer-background: #fff;
+  }
+}
+
 @font-face {
   font-family: "sans-serif-copy";
   src: local("Atkinson Hyperlegible Next"), local("Atkinson_Hyperlegible_Next"), url("fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
@@ -78,9 +107,35 @@ body {
   max-width: 45rem;
   margin: 0 auto;
   padding: 0;
+  background-color: var(--body-background, #fefefe);
+  color: var(--text-color, #000);
 }
-body > * {
-  background-color: darkolivegreen;
+body > *:not(main, header) {
+  background-color: var(--footer-background, #8aff93);
+}
+
+a:any-link {
+  color: var(--link-color, #000);
+}
+
+main {
+  background-color: var(--main-background, #ffda8a);
+}
+
+header {
+  background-color: var(--header-background, #8aff93);
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+}
+
+body:not(:has(input:focus)) header {
+  position: sticky;
+  top: 0;
+  z-index: 100000000;
+}
+body:not(:has(input:focus)) *:target {
+  scroll-margin-top: 130px;
 }
 
 p {
@@ -100,13 +155,12 @@ nav ul li {
 main {
   padding: 0 16px;
 }
+main li:nth-child(even) {
+  background: yellowgreen;
+}
 
 dt, dd {
   display: inline-block;
-}
-
-li:nth-child(even) {
-  background: yellowgreen;
 }
 
 h1 {
@@ -129,10 +183,51 @@ h1 {
   font-family: fantasy;
 }
 
-a[aria-current] {
-  text-decoration: none;
+@media print {
+  .in-screen-only {
+    display: none;
+  }
+}
+*[aria-label]:hover {
+  position: relative;
+  margin-top: 2rem;
+  border: 3px solid var(--ok, green);
+}
+*[aria-label]:hover:before {
+  content: "  aria-label:  " attr(aria-label) " ";
+  color: var(--ok, green);
+  top: -1.5rem;
+  left: -3px;
+  position: absolute;
+  background: #fff;
+  border: 3px solid var(--ok, green);
+  padding: 0 4px;
 }
 
-a[target=_blank], a[download] {
-  color: red;
+body.debug a[target=_blank], body.debug a[download] {
+  color: var(--error, red);
+}
+body.debug *:not(img, input, hr, br):empty {
+  border: 3px solid var(--error, red);
+  background-color: #fff;
+}
+body.debug *:not(img, input, hr, br):empty:before {
+  content: "Leeres Element gefunden!";
+  color: var(--error, red);
+}
+body.debug ul:not([aria-label], [aria-labelledby], [role]), body.debug ol:not([aria-label], [aria-labelledby], [role]) {
+  position: relative;
+  margin-top: 2rem;
+  border: 3px solid var(--error, red);
+}
+body.debug ul:not([aria-label], [aria-labelledby], [role]):before, body.debug ol:not([aria-label], [aria-labelledby], [role]):before {
+  content: "Liste hat keinen Namen im Accessibility-tree!";
+  color: var(--error, red);
+  top: -2rem;
+  position: absolute;
+  background: white;
+}
+
+a[aria-current] {
+  text-decoration: none;
 }

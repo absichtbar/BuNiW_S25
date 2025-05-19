@@ -20,10 +20,41 @@ body {
     max-width: 45rem;
     margin: 0 auto;
     padding: 0;
-    > * {
-        background-color: darkolivegreen;
+    background-color: $body-background;
+    color: $text-color;
+    //> *:not(main):not(header) { // funktioniert, aber länger
+    > *:not(main, header) {
+        background-color: $footer-background;
     }
 }
+a:any-link{
+    color: $link-color;
+}
+main {
+    background-color: $main-background;
+}
+header {
+    background-color: $header-background;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    //width: 100%;
+}
+
+// sticky header – solange kein input fokussiert ist
+body:not(:has(input:focus)) {
+    // background-color: purple;
+    header{
+        position: sticky;
+        top: 0;
+        z-index: 100000000;
+
+    }
+    *:target{
+        scroll-margin-top:130px;
+    } 
+}
+
 p {
     margin: 0 0 1rem;
 }
@@ -39,12 +70,12 @@ nav ul {
 }
 main {
     padding: 0 16px;
+    li:nth-child(even) {
+      background: yellowgreen;
+    }
 }
 dt, dd {
   display: inline-block;
-}
-li:nth-child(even) {
-  background: yellowgreen;
 }
 h1 {
     padding-inline-start: 32px;
@@ -64,3 +95,11 @@ h1 {
 
 // FOUT => Flash of Unstyled Text
 // FOIT => Flash of Invisible Text
+
+@media print{
+    // section#sitemap { // klappt nicht, die ID ist IN der Section
+    // section:has(#sitemap) { // funktioniert, aber IDs müssen bekannt sein
+    .in-screen-only { // klasse überall setzen wo etwas nur im Screen angezeigt werden soll
+        display: none;
+    }
+}

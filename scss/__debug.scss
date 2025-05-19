@@ -1,0 +1,27 @@
+body.debug{
+    a[target="_blank"], a[download]{
+        color: $error;
+    }
+    *:not(img,input,hr,br):empty{
+        border: 3px solid $error;
+        background-color: $white;
+        &:before {
+            content: "Leeres Element gefunden!";
+            color: $error;
+        }
+    }
+    ul, ol {
+        &:not([aria-label],[aria-labelledby],[role]) {
+            position: relative;
+            margin-top: 2rem;
+            border: 3px solid $error;
+            &:before {
+                content: "Liste hat keinen Namen im Accessibility-tree!";
+                color: $error;
+                top: -2rem;
+                position: absolute;
+                background: white;
+            }
+        }
+    }
+}

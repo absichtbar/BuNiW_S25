@@ -1,0 +1,34 @@
+:root {
+    --error: red;
+    --text-color: #000;
+    --link-color: #00F;
+    --body-background: #fefefe;
+    --main-background: #ffda8a;
+    --header-background: #8aff93;
+    --footer-background: #8aff93;
+    @media screen and (prefers-color-scheme:dark){
+        --error: red;
+        --text-color: #fff;
+        --link-color: #fbff00;
+        --body-background: #010101;
+        --main-background: #6b4900;
+        --header-background: #ff7300;
+        --footer-background: #ff7300;
+    }
+    @media print {
+        --body-background: #fff;
+        --main-background: #fff;
+        --header-background: #fff;
+        --footer-background: #fff;
+    }
+}
+$error: var(--error, red);
+$ok: var(--ok, green);
+$text-color: var(--text-color, #000);
+$link-color: var(--link-color, #000);
+$body-background: var(--body-background, #fefefe);
+$main-background: var(--main-background, #ffda8a);
+$header-background: var(--header-background, #8aff93);
+$footer-background: var(--footer-background, #8aff93);
+$white: #fff;
+$black: #000;

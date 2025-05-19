@@ -1,10 +1,12 @@
 @charset "UTF-8";
+
 @import '_00_resets';
+@import '_00_rootvariables';
 @import '_01_font';
+@import '_02_access';
+
+@import '__debug';
 
 a[aria-current]{
     text-decoration: none;
-}
-a[target="_blank"], a[download]{
-    color: red;
 }
