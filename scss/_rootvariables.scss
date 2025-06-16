@@ -1,5 +1,7 @@
 :root {
     --error: red;
+    --warning: orange;
+    --ok: green;
     --text-color: #000;
     --link-color: #00F;
     --body-background: #fefefe;
@@ -23,6 +25,7 @@
     }
 }
 $error: var(--error, red);
+$warning: var(--warning, orange);
 $ok: var(--ok, green);
 $text-color: var(--text-color, #000);
 $link-color: var(--link-color, #000);

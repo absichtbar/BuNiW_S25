@@ -1,3 +1,4 @@
+@charset "UTF-8";
 aside, header, footer, main, nav, section,
 article,
 div, noscript,
@@ -59,6 +60,8 @@ ul:not([class]), ol:not([class]) {
 
 :root {
   --error: red;
+  --warning: orange;
+  --ok: green;
   --text-color: #000;
   --link-color: #00F;
   --body-background: #fefefe;
@@ -152,11 +155,54 @@ nav ul li {
   padding: 0 16px;
 }
 
+.list-style-none {
+  list-style: "";
+  /*li:before {
+      content: "Ä" / "";
+  }*/
+}
+
+#blog-roll {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+#blog-roll li {
+  padding-inline-start: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#blog-roll li * {
+  position: unset;
+}
+#blog-roll li a:focus-visible, #blog-roll li a:focus {
+  border: none;
+}
+#blog-roll li a:hover::after {
+  border: 3px solid var(--link-color, #000);
+}
+#blog-roll li a:focus-visible::after {
+  border: 3px dashed var(--link-color, #000);
+}
+#blog-roll li a::after {
+  content: "";
+  inset: 0 0 0 0;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1000000;
+}
+#blog-roll li img {
+  width: 100%;
+  height: auto;
+  order: -1;
+}
+
 main {
   padding: 0 16px;
 }
 main li:nth-child(even) {
-  background: yellowgreen;
+  background: rgba(0, 0, 0, 0.0666666667);
 }
 
 dt, dd {
@@ -204,8 +250,17 @@ h1 {
   padding: 0 4px;
 }
 
-body.debug a[target=_blank], body.debug a[download] {
-  color: var(--error, red);
+body.debug a {
+  outline-offset: 5px;
+}
+body.debug a[target=_blank] {
+  outline: 3px dashed var(--error, red);
+}
+body.debug a[download] {
+  outline: 3px dashed var(--warning, orange);
+}
+body.debug a[download][href*=".pdf"] {
+  outline: 3px dashed var(--error, red);
 }
 body.debug *:not(img, input, hr, br):empty {
   border: 3px solid var(--error, red);

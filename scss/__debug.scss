@@ -1,23 +1,34 @@
+@use '_rootvariables' as color;
+
 body.debug{
-    a[target="_blank"], a[download]{
-        color: $error;
+    a {
+        outline-offset: 5px;
+    }
+    a[target="_blank"]{
+        outline: 3px dashed color.$error;
+    }
+    a[download]{
+        outline: 3px dashed color.$warning;
+        &[href*=".pdf"]{
+            outline: 3px dashed color.$error;
+        }
     }
     *:not(img,input,hr,br):empty{
-        border: 3px solid $error;
-        background-color: $white;
+        border: 3px solid color.$error;
+        background-color: color.$white;
         &:before {
             content: "Leeres Element gefunden!";
-            color: $error;
+            color: color.$error;
         }
     }
     ul, ol {
         &:not([aria-label],[aria-labelledby],[role]) {
             position: relative;
             margin-top: 2rem;
-            border: 3px solid $error;
+            border: 3px solid color.$error;
             &:before {
                 content: "Liste hat keinen Namen im Accessibility-tree!";
-                color: $error;
+                color: color.$error;
                 top: -2rem;
                 position: absolute;
                 background: white;

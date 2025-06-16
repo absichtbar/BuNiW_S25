@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-@import '_00_resets';
-@import '_00_rootvariables';
-@import '_01_font';
-@import '_02_access';
+@use '_resets' as resets;
+@use '_rootvariables' as color;
+@use '_font' as fonts;
+@use '_access' as access;
 
-@import '__debug';
+@use '__debug' as debug;
 
 a[aria-current]{
     text-decoration: none;

@@ -1,15 +1,17 @@
+@use '_rootvariables' as color;
+
 *[aria-label]:hover{
     position: relative;
     margin-top: 2rem;
-    border: 3px solid $ok;
+    border: 3px solid color.$ok;
     &:before {
         content: " \0020 aria-label: \0020 " attr(aria-label) "\0020 ";
-        color: $ok;
+        color: color.$ok;
         top: -1.5rem;
         left: -3px;
         position: absolute;
-        background: $white;
-        border: 3px solid $ok;
+        background: color.$white;
+        border: 3px solid color.$ok;
           padding: 0 4px;
     }
 }

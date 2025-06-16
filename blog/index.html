@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- de-simple-AT Deutsch Leichte Sprache in Österreich -->
 <!-- sgn-CH-DE Sign-Language für die Schweiz auf Deutsch -->
-<html lang="de-simple-DE">
+<html lang="de-DE">
     <head>
         <meta charset="utf-8"><!-- MUSS an erster Stelle stehen -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
             @media screen and (prefers-contrast:more) and (forced-colors: none){html{filter:contrast(1.5) saturate(1.5) brightness(1.25) brightness(1);}picture:has(source[media*='(prefers-contrast: more)']){filter:contrast(.75) saturate(.75) brightness(.875) !important;}}
         </style>
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="styles.css" media="all"><!-- media ist hier optional -->
+        <link rel="stylesheet" href="../styles.css" media="all"><!-- media ist hier optional -->
         <!-- SEO Search-Engine-Optimization -->
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"> 
         <!-- unavailable_after: 2025-06-28 --> 
@@ -47,7 +47,7 @@
         <!-- alle Infos zu twitter: https://developer.x.com/en/docs/x-for-websites/cards/overview/abouts-cards -->
         <!-- <base> ist nicht barrierefrei! -->
     </head>
-    <body>
+    <body class="debug">
         <section id="anfang">
             <h2 style="display: none;">Sprungmarken</h2>
             <a href="#inhalt">Zum Inhalt springen</a>
@@ -55,36 +55,80 @@
         </section>
         <header>
             <!-- Logo -->
-            
             <p>Logo + Name der Seite</p>
-            <nav>
-                <ul>
+            <nav id="nav" aria-label="Hauptnavigation">
+                <ul aria-labelledby="nav">
                     <li><a href="../index.html">Startseite</a></li>
                     <li><a href="../ueber-uns.html">Über uns</a></li>
                     <li><a href="../historie.html">Historie</a></li>
                     <li><a href="../jobs/index.html">Jobs</a></li>
-                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../blog/index.html" aria-current="page">Blog</a></li>
                     <li><a href="../historie.html">Kontakt</a></li>
                 </ul>
             </nav>
         </header>
         <main id="inhalt">
             <!-- Inhalt der Seite -->
-            <!-- Social Media Links (Share-Links) -->
             <div>
-                <h1 id="">Startseite Blog</h1>
-                
+                <h1 id="blog-uebersicht">Blog-Übersicht</h1>
             </div>
+            <!-- Übersicht der Blogbeiträge -->
+             <ul id="blog-roll" class="list-style-none" aria-labelledby="blog-uebersicht">
+                <li>
+                    <!-- Vorschlag von Copilot in VisualStudioCode -->
+                    <h2><a href="beitrag-1.html">Blogbeitrag 1</a></h2>
+                    <p>Kurze Beschreibung des Blogbeitrags 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><time datetime="2023-10-01">1. Oktober 2023</time> von <a href="../ueber-uns.html">Autor Name</a></p>
+                </li>
+                <li>
+                    <!-- Bessere Variante! -->
+                    <h2>Blogbeitrag 2</h2>
+                    <img src="img/farbsehschwaeche.png" alt>
+                    <p><time role="none" datetime="2023-10-01">1. Oktober 2023</time> von Autor Name</p>
+                    <p>Kurze Beschreibung des Blogbeitrags 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="beitrag-1.html">Alles über Blogbeiträge</a>
+
+                </li>
+             </ul>
+            
+            <!-- Social Media Links (Share-Links) -->
         </main>
         <aside>
             <!-- Inhaltsbezug, aber NICHT Inhalt z.B. Links auf Kategorien im Blog -->
         </aside>
-        <footer>
+        <footer id="footer">
             <!-- Social Media Links (Direkt zu den Profilen) -->
             <!-- Sitemap – direkt oder als Link -->
+            <section aria-labelledby="sitemap" class="in-screen-only">
+                <h2 id="sitemap">Seiten-Übersicht</h2>
+                <nav aria-labelledby="sitemap">
+                   <ul>
+                       <!-- <li><a href="index.html" style="text-decoration: none;">Startseite</a></li> -->
+                       <li><a href="index.html" aria-current="page">Startseite</a></li>
+                       <li><a href="ueber-uns.html">Über uns</a></li>
+                       <li><a href="historie.html">Historie</a></li>
+                       <li><a href="jobs/index.html">Jobs</a></li>
+                       <li><a href="blog/index.html">Blog</a></li>
+                       <li><a href="historie.html">Kontakt</a></li>
+                   </ul>
+               </nav>
+            </section>
             <!-- Meta-Informationen: Adresse, Öffnungszeiten etc. -->
+            <section aria-labelledby="address">
+                <h2 id="address">Adresse</h2>
+                <address>
+                    <p>Leopoldstraße 10, 10357 Berlin</p>
+                </address>
+            </section>
             <!-- Kontaktdaten/Formular -->
             <!-- Legal Links -->
+             <nav aria-label="Rechtliche Links">
+                <ul>
+                    <li><a href="impressum.html">Impressum</a></li>
+                    <li><a href="datenschutz.html">Datenschutz</a></li>
+                    <li><a href="barrierefreiheitserklaerung.html">Barrierefreiheitserklärung</a></li>
+                </ul>
+            </nav>
         </footer>
     </body>
 </html>

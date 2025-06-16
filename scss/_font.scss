@@ -1,3 +1,5 @@
+@use '_rootvariables' as color;
+
 @font-face {
     font-family: "sans-serif-copy";
     src:    local("Atkinson Hyperlegible Next"), 
@@ -20,21 +22,21 @@ body {
     max-width: 45rem;
     margin: 0 auto;
     padding: 0;
-    background-color: $body-background;
-    color: $text-color;
+    background-color: color.$body-background;
+    color: color.$text-color;
     //> *:not(main):not(header) { // funktioniert, aber länger
     > *:not(main, header) {
-        background-color: $footer-background;
+        background-color: color.$footer-background;
     }
 }
 a:any-link{
-    color: $link-color;
+    color: color.$link-color;
 }
 main {
-    background-color: $main-background;
+    background-color: color.$main-background;
 }
 header {
-    background-color: $header-background;
+    background-color: color.$header-background;
     border-bottom-width: 3px;
     border-bottom-style: solid;
     border-bottom-color: transparent;
@@ -68,10 +70,55 @@ nav ul {
         padding: 0 16px;
     }
 }
+.list-style-none {
+    list-style: "";
+    /*li:before {
+        content: "Ä" / "";
+    }*/
+}
+#blog-roll {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    li {
+        padding-inline-start: 16px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        *{
+            //display: inline-block;
+            position: unset;
+        }
+        a{
+            &:focus-visible, &:focus {
+                border: none;
+            }
+            &:hover::after {
+                border: 3px solid color.$link-color;
+            }
+            &:focus-visible::after {
+                border: 3px dashed color.$link-color;
+            }
+            &::after {
+                content: "";
+                inset: 0 0 0 0;
+                position: absolute;
+                cursor: pointer;
+                z-index: 1000000;
+                //border: 3px solid color.$link-color;
+            }
+        }
+        img {
+            width: 100%;
+            height: auto;
+            order: -1;
+        }
+    }
+}
 main {
     padding: 0 16px;
     li:nth-child(even) {
-      background: yellowgreen;
+      background: #00000011;
     }
 }
 dt, dd {

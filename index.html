@@ -56,7 +56,6 @@
         </section>
         <header>
             <!-- Logo -->
-            
             <p>Logo + Name der Seite</p>
             <nav id="nav" aria-label="Hauptnavigation">
                 <ul aria-labelledby="nav">
@@ -76,6 +75,22 @@
             <div>
                 <h1 id="beispiel">Beispiel-Seite aus dem Kurs</h1>
                 <a href="https://www.bht-berlin.de/" target="_blank" title="Startseite bht-berlin.de">Zur BHT-Berlin-Webseite</a>
+                <br>
+                <!-- Title und Download -->
+                <a href="https://www.bht-berlin.de/fileadmin/oe/gutz/Schriftenreihe/GuTZ-Schriftenreihe_05_Jul2012_Ihsen-Ducki_Gender_Toolbox.pdf" title="Startseite bht-berlin.de" download>Broschüre (GuTZ-Schriftenreihe_05_Jul2012_Ihsen-Ducki_Gender_Toolbox.pdf) herunterladen</a>
+                <br>
+                <!-- Besser: direkt per Attribut umbenennen, geht aber wegen Cross-Origin-Policy meist nicht bei externen Dokumenten:  -->
+                <a href="https://www.bht-berlin.de/fileadmin/oe/gutz/Schriftenreihe/GuTZ-Schriftenreihe_05_Jul2012_Ihsen-Ducki_Gender_Toolbox.pdf" download="Gender-Toolbox.pdf">Broschüre herunterladen</a>
+                <br>
+                <!-- Noch besser: vom gleichen Server: ABER es ist sehr fehleranfällig und Browser-abhängig!  -->
+                <a href="download/GuTZ-Schriftenreihe_05_Jul2012_Ihsen-Ducki_Gender_Toolbox.pdf" download="Gender-Toolbox.pdf">Broschüre herunterladen</a>
+                <br>
+                <!-- Noch besser: Datei direkt gut benennen  -->
+                <a href="download/Gender-Toolbox.pdf" download>Broschüre herunterladen</a>
+                <br>
+                <!-- Noch besser: Datei direkt gut benennen  -->
+                <a href="download/Gender-Toolbox.xls" aria-label="Broschüre Gender-Toolbox.xls herunterladen">Broschüre herunterladen</a>
+                <br>
                 <p>
                     Tags, die nicht geschlossen werden und daher keinen Inhalt haben können: <br>
                     <img><br>
